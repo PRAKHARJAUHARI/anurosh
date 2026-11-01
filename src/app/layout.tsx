@@ -112,13 +112,13 @@ export default function RootLayout({
           {children}
         </div>
 
-        {/* Minimal Footer with Store Info for SEO */}
-        <footer className="border-t border-[#e8ded2] bg-[#faf6ee] py-6 text-xs text-[#73655a]">
-          <div className="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-2 text-center sm:text-left">
-            <p>
-              <strong>Anurosh:</strong> 18/355, Sadbhavna Road, Near Maitri Park, Indira Nagar, Lucknow, Uttar Pradesh - 226016
+        {/* Minimalist Luxury Footer */}
+        <footer className="border-t border-[#eee6db] bg-[#fcfaf6] py-8 text-xs font-light text-[#7a6d64]">
+          <div className="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
+            <p className="tracking-wide">
+              <strong className="font-normal text-[#2b221e]">Anurosh:</strong> 18/355, Sadbhavna Road, Near Maitri Park, Indira Nagar, Lucknow, Uttar Pradesh - 226016
             </p>
-            <p>© {new Date().getFullYear()} Anurosh. All rights reserved.</p>
+            <p className="tracking-wider text-[11px] text-[#9a8d84]">© {new Date().getFullYear()} Anurosh. All rights reserved.</p>
           </div>
         </footer>
       </body>

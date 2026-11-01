@@ -24,32 +24,32 @@ export default function HeaderNav() {
   };
 
   return (
-    <header className="border-b border-[#e5d8c6] bg-white sticky top-0 z-30 shadow-[0_2px_15px_rgba(0,0,0,0.02)]">
-      <div className="max-w-6xl mx-auto px-4 py-3.5 flex flex-col sm:flex-row items-center justify-between gap-3">
+    <header className="border-b border-[#eee6db] bg-white/95 backdrop-blur-md sticky top-0 z-30">
+      <div className="max-w-6xl mx-auto px-6 py-4 flex flex-col sm:flex-row items-center justify-between gap-4">
         {/* Logo with interactive entrance trigger */}
         <div className="flex items-center gap-3">
           <button
             onClick={handleLogoClick}
             type="button"
-            className="text-center sm:text-left group cursor-pointer transition-transform duration-200 active:scale-95 focus:outline-none"
-            title="Click to view the 3D Entrance Sequence"
+            className="text-center sm:text-left group cursor-pointer focus:outline-none"
+            title="Click to view the Entrance Sequence"
           >
             <div className="flex items-baseline gap-2">
-              <span className="font-serif text-2xl sm:text-3xl font-bold tracking-[0.25em] text-[#380e15] group-hover:text-[#8e2030] transition-colors uppercase">
+              <span className="font-serif text-2xl sm:text-3xl font-light tracking-[0.28em] text-[#241e1b] group-hover:text-[#9b7c53] transition-colors uppercase">
                 Anurosh
               </span>
-              <span className="hidden sm:inline-flex items-center gap-1 text-[9px] uppercase tracking-widest text-[#a88238] border border-[#c5a059]/40 bg-[#fdfaf5] px-1.5 py-0.5 rounded-sm opacity-90 group-hover:bg-[#380e15] group-hover:text-white transition-all">
-                ▶ Store Intro
+              <span className="hidden sm:inline-block text-[9px] uppercase tracking-[0.3em] text-[#9b7c53] font-light">
+                • Store Entrance
               </span>
             </div>
-            <span className="text-[10px] tracking-[0.28em] text-[#8e6d2b] uppercase font-medium block">
-              Premium Bridal & Ethnic • Lucknow
+            <span className="text-[10px] tracking-[0.3em] text-[#8a7b72] uppercase font-light block">
+              Bridal & Ethnic • Lucknow
             </span>
           </button>
         </div>
 
         {/* Navigation Links */}
-        <nav className="flex items-center space-x-6 text-xs uppercase tracking-widest font-semibold text-[#5a4d43]">
+        <nav className="flex items-center space-x-7 text-xs uppercase tracking-[0.25em] font-light text-[#5e5149]">
           {navLinks.map((link) => {
             const isActive = pathname === link.href;
             return (
@@ -58,8 +58,8 @@ export default function HeaderNav() {
                 href={link.href}
                 className={`py-1 relative transition-colors ${
                   isActive
-                    ? 'text-[#380e15] font-bold after:content-[""] after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[1.5px] after:bg-[#380e15]'
-                    : 'hover:text-[#380e15]'
+                    ? 'text-[#241e1b] font-normal after:content-[""] after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[1px] after:bg-[#241e1b]'
+                    : 'hover:text-[#241e1b]'
                 }`}
               >
                 {link.name}
