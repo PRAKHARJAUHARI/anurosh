@@ -1,13 +1,23 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Menu, X, MapPin, Phone } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 
 export default function HeaderNav() {
   const pathname = usePathname();
+  const isHome = pathname === '/';
+  const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 40);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const navLinks = [
     { name: 'Home', href: '/' },
@@ -18,93 +28,92 @@ export default function HeaderNav() {
     { name: 'Contact', href: '/contact' },
   ];
 
+  // On homepage before scrolling, transparent overlay over video with crisp white text
+  // When scrolled or on inner pages, clean light background with dark text
+  const isLight = !isHome || isScrolled;
+
   return (
     <>
-      {/* Top Subtle Luxury Strip */}
-      <div className="bg-[#f7f3ed] text-[#8c7355] text-[10px] tracking-[0.3em] uppercase py-2 px-4 text-center border-b border-[#eee6db] select-none">
-        <span>Flagship Atelier • Sadbhavna Road, Indira Nagar, Lucknow</span>
-      </div>
-
-      {/* Main Luxury Header — Light, Elegant, & Premium */}
-      <header className="sticky top-0 z-40 bg-[#fdfbf8]/95 backdrop-blur-md border-b border-[#eee6db] py-4 transition-all duration-300">
-        <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
+      <header
+        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-500 ${
+          isLight
+            ? 'bg-[#fdfbf8]/95 backdrop-blur-md border-b border-[#eee6db] py-4 text-[#241e1b] shadow-sm'
+            : 'bg-gradient-to-b from-black/75 via-black/35 to-transparent py-5 sm:py-6 text-white'
+        }`}
+      >
+        <div className="max-w-7xl mx-auto px-6 flex flex-col items-center">
           
-          {/* Left Navigation (Home, Bridal, Ethnic) */}
-          <nav className="hidden lg:flex items-center space-x-8 text-[11px] uppercase tracking-[0.28em] font-light text-[#5c4f46]">
-            {navLinks.slice(0, 3).map((item) => {
-              const isActive = pathname === item.href;
-              return (
-                <Link
-                  key={item.name}
-                  href={item.href}
-                  className={`transition-colors py-1 hover:text-[#9b7c53] ${
-                    isActive ? 'text-[#9b7c53] font-normal border-b border-[#9b7c53]' : ''
-                  }`}
-                >
-                  {item.name}
-                </Link>
-              );
-            })}
-          </nav>
+          {/* Top Row: Hamburger on Mobile & Centered Logo */}
+          <div className="w-full flex items-center justify-between sm:justify-center relative">
+            
+            {/* Mobile Hamburger Trigger */}
+            <button
+              onClick={() => setMobileMenuOpen(true)}
+              type="button"
+              className={`lg:hidden p-2 transition-colors focus:outline-none ${
+                isLight ? 'text-[#241e1b] hover:text-[#9b7c53]' : 'text-white hover:text-white/80'
+              }`}
+              aria-label="Open Navigation Menu"
+            >
+              <Menu className="w-5 h-5" />
+            </button>
 
-          {/* Mobile Hamburger Trigger */}
-          <button
-            onClick={() => setMobileMenuOpen(true)}
-            type="button"
-            className="lg:hidden p-2 text-[#241e1b] hover:text-[#9b7c53] transition-colors focus:outline-none"
-            aria-label="Open Navigation Menu"
-          >
-            <Menu className="w-5 h-5" />
-          </button>
-
-          {/* Center Brand Identity */}
-          <div className="text-center">
-            <Link href="/" className="inline-block group focus:outline-none">
-              {/* Royal Crest Monogram Icon */}
-              <div className="flex justify-center mb-1">
-                <svg
-                  className="w-4 h-4 text-[#9b7c53] transition-transform duration-500 group-hover:scale-110"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.2"
-                >
-                  <path d="M12 2L15 8H9L12 2Z" fill="currentColor" fillOpacity="0.2" />
-                  <path d="M12 22V12M12 12L7 16M12 12L17 16" />
-                  <circle cx="12" cy="7" r="1.5" fill="currentColor" />
-                  <circle cx="12" cy="12" r="3" />
-                </svg>
-              </div>
-
-              <span className="font-serif text-2xl sm:text-3xl tracking-[0.32em] text-[#241e1b] uppercase font-light leading-none group-hover:text-[#9b7c53] transition-colors block">
+            {/* Sabyasachi-Style Centered Brand Name */}
+            <Link
+              href="/"
+              className="text-center group focus:outline-none"
+            >
+              <span
+                className={`font-serif text-2xl sm:text-3xl tracking-[0.35em] uppercase font-light leading-none block transition-colors ${
+                  isLight
+                    ? 'text-[#241e1b] group-hover:text-[#9b7c53]'
+                    : 'text-white group-hover:text-white/90 drop-shadow-sm'
+                }`}
+              >
                 Anurosh
               </span>
-              <span className="text-[9px] uppercase tracking-[0.45em] text-[#9b7c53] font-light block mt-1">
-                Lucknow
-              </span>
             </Link>
+
+            {/* Empty spacer for mobile balance */}
+            <div className="lg:hidden w-8" />
           </div>
 
-          {/* Right Navigation (Collaboration, About, Contact) */}
-          <nav className="hidden lg:flex items-center space-x-8 text-[11px] uppercase tracking-[0.28em] font-light text-[#5c4f46]">
-            {navLinks.slice(3).map((item) => {
+          {/* Bottom Row: Centered Navigation Links with subtle dot separators */}
+          <nav className="hidden lg:flex items-center justify-center space-x-7 mt-3 text-[11px] uppercase tracking-[0.28em] font-light">
+            {navLinks.map((item, index) => {
               const isActive = pathname === item.href;
               return (
-                <Link
-                  key={item.name}
-                  href={item.href}
-                  className={`transition-colors py-1 hover:text-[#9b7c53] ${
-                    isActive ? 'text-[#9b7c53] font-normal border-b border-[#9b7c53]' : ''
-                  }`}
-                >
-                  {item.name}
-                </Link>
+                <React.Fragment key={item.name}>
+                  <Link
+                    href={item.href}
+                    className={`py-1 transition-colors relative hover:opacity-100 ${
+                      isLight
+                        ? isActive
+                          ? 'text-[#9b7c53] font-normal border-b border-[#9b7c53]'
+                          : 'text-[#4a3f38] hover:text-[#9b7c53]'
+                        : isActive
+                        ? 'text-white font-normal border-b border-white'
+                        : 'text-white/85 hover:text-white'
+                    }`}
+                  >
+                    {item.name}
+                  </Link>
+
+                  {/* Dot separator between items */}
+                  {index < navLinks.length - 1 && (
+                    <span
+                      className={`text-[8px] select-none ${
+                        isLight ? 'text-[#c2b4a5]' : 'text-white/40'
+                      }`}
+                    >
+                      •
+                    </span>
+                  )}
+                </React.Fragment>
               );
             })}
           </nav>
 
-          {/* Mobile Right Spacer */}
-          <div className="lg:hidden w-8" />
         </div>
       </header>
 
@@ -144,22 +153,18 @@ export default function HeaderNav() {
             </div>
           </div>
 
-          <div className="border-t border-[#eee6db] pt-6 space-y-2 text-xs font-light text-[#7a6b61]">
-            <p className="tracking-wide">
-              <strong className="text-[#241e1b] font-normal block mb-1">Lucknow Flagship Studio:</strong>
-              18/355, Sadbhavna Road, Near Maitri Park, Indira Nagar, Lucknow - 226016
+          <div className="border-t border-[#eee6db] pt-6 space-y-3 text-xs font-light text-[#7a6b61]">
+            <a
+              href="https://www.instagram.com/anurosh.in"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block w-full text-center py-3 border border-[#9b7c53] text-[#9b7c53] hover:bg-[#9b7c53] hover:text-white transition-all uppercase tracking-[0.25em] text-xs"
+            >
+              Follow @anurosh.in on Instagram
+            </a>
+            <p className="tracking-wide text-center pt-2">
+              Lucknow Flagship Atelier • Sadbhavna Road, Indira Nagar
             </p>
-            <div className="flex items-center gap-4 pt-1 text-[11px] uppercase tracking-widest text-[#9b7c53]">
-              <a href="tel:+919876543210" className="hover:underline flex items-center gap-1">
-                <Phone className="w-3 h-3" />
-                <span>+91 98765 43210</span>
-              </a>
-              <span>•</span>
-              <Link href="/contact" onClick={() => setMobileMenuOpen(false)} className="hover:underline flex items-center gap-1">
-                <MapPin className="w-3 h-3" />
-                <span>Locate Studio</span>
-              </Link>
-            </div>
           </div>
         </div>
       )}
