@@ -1,5 +1,4 @@
 import type { Metadata, Viewport } from 'next';
-import FirstVisitIntro from '@/components/FirstVisitIntro';
 import HeaderNav from '@/components/HeaderNav';
 import './globals.css';
 
@@ -105,9 +104,6 @@ export default function RootLayout({
         />
       </head>
       <body className="antialiased min-h-screen flex flex-col bg-[#fdfbf7] text-[#221c18] selection:bg-[#380e15] selection:text-white">
-        {/* First-time visitor cinematic 3D entrance intro */}
-        <FirstVisitIntro />
-
         {/* Navigation Header with Interactive Logo Trigger */}
         <HeaderNav />
 

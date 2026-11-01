@@ -2,10 +2,11 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 
 export default function HeaderNav() {
   const pathname = usePathname();
+  const router = useRouter();
 
   const navLinks = [
     { name: 'Home', href: '/' },
@@ -16,8 +17,10 @@ export default function HeaderNav() {
   ];
 
   const handleLogoClick = (e: React.MouseEvent) => {
-    // Dispatch event to play the cinematic 3D opening sequence
-    window.dispatchEvent(new CustomEvent('play-anurosh-intro'));
+    window.dispatchEvent(new CustomEvent('play-anurosh-doors'));
+    if (pathname !== '/') {
+      router.push('/');
+    }
   };
 
   return (
