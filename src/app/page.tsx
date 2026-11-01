@@ -354,14 +354,13 @@ export default function HomePage() {
         <div className="max-w-6xl mx-auto space-y-12">
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 border-b border-[#e5ddd0] pb-10">
-            <div>
-              <span className="font-serif text-2xl tracking-[0.25em] text-[#241e1b] uppercase block">
-                Anurosh
-              </span>
-              <span className="text-[10px] uppercase tracking-[0.35em] text-[#9b7c53] font-light">
-                Haute Couture • Lucknow
-              </span>
-              <p className="text-xs text-[#73655d] font-light mt-3 leading-relaxed max-w-xs">
+            <div className="space-y-3">
+              <img
+                src="/anurosh-logo.webp"
+                alt="Anurosh - Beyond Fashion"
+                className="h-14 w-auto object-contain"
+              />
+              <p className="text-xs text-[#73655d] font-light mt-2 leading-relaxed max-w-xs">
                 Handcrafted bridal lehengas and Awadhi karigari curated at our Indira Nagar flagship atelier.
               </p>
             </div>
