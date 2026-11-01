@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from 'next';
-import Link from 'next/link';
 import FirstVisitIntro from '@/components/FirstVisitIntro';
+import HeaderNav from '@/components/HeaderNav';
 import './globals.css';
 
 export const viewport: Viewport = {
@@ -90,14 +90,6 @@ export default function RootLayout({
     ],
   };
 
-  const navLinks = [
-    { name: 'Home', href: '/' },
-    { name: 'Bridal', href: '/collections/bridal' },
-    { name: 'Ethnic', href: '/collections/ethnic' },
-    { name: 'Collaboration', href: '/collaboration' },
-    { name: 'About', href: '/about' },
-  ];
-
   return (
     <html lang="en">
       <head>
@@ -116,32 +108,8 @@ export default function RootLayout({
         {/* First-time visitor cinematic 3D entrance intro */}
         <FirstVisitIntro />
 
-        {/* Navigation Header */}
-        <header className="border-b border-[#e5d8c6] bg-white sticky top-0 z-30">
-          <div className="max-w-6xl mx-auto px-4 py-4 flex flex-col sm:flex-row items-center justify-between gap-4">
-            <Link href="/" className="text-center sm:text-left">
-              <span className="font-serif text-2xl font-bold tracking-[0.25em] text-[#380e15] uppercase block">
-                Anurosh
-              </span>
-              <span className="text-[10px] tracking-[0.25em] text-[#8e6d2b] uppercase font-medium">
-                Premium Bridal & Ethnic • Lucknow
-              </span>
-            </Link>
-
-            {/* Exact Navigation Links requested */}
-            <nav className="flex items-center space-x-6 text-xs uppercase tracking-widest font-semibold text-[#5a4d43]">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.name}
-                  href={link.href}
-                  className="hover:text-[#380e15] transition-colors py-1"
-                >
-                  {link.name}
-                </Link>
-              ))}
-            </nav>
-          </div>
-        </header>
+        {/* Navigation Header with Interactive Logo Trigger */}
+        <HeaderNav />
 
         {/* Page Content (Blank pages) */}
         <div className="flex-grow flex flex-col">
