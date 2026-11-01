@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Sparkles, MapPin, Phone, ArrowRight, ShieldCheck, Compass, RotateCcw } from 'lucide-react';
-import AnuroshBoutiqueDoors from '@/components/AnuroshBoutiqueDoors';
+import StorefrontPreloader from '@/components/StorefrontPreloader';
 
 export default function HomePage() {
   const [hasEntered, setHasEntered] = useState<boolean>(false);
@@ -25,9 +25,9 @@ export default function HomePage() {
 
   return (
     <div className={`relative min-h-screen ${!hasEntered ? 'h-screen overflow-hidden' : ''}`}>
-      {/* 1. 3D BOUTIQUE STOREFRONT & DOOR ANIMATION PRELOADER (100vh, overflow-hidden) */}
+      {/* 1. ARCHITECTURAL BOUTIQUE PRELOADER (100vh, overflow-hidden) */}
       {!hasEntered && (
-        <AnuroshBoutiqueDoors onEnterComplete={() => setHasEntered(true)} />
+        <StorefrontPreloader onComplete={() => setHasEntered(true)} />
       )}
 
       {/* 2. MAIN WEBSITE CONTENT (Revealed seamlessly upon entering) */}
