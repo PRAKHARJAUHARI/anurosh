@@ -30,9 +30,9 @@ export default function HeaderNav() {
   ];
 
   // Header background style:
-  // - When on inner pages or scrolled: light luxury background with dark text
-  // - When on homepage at the top: transparent over runway video
-  // - When hovered at the top of homepage: enhanced translucent backdrop for maximum contrast
+  // - On inner pages or when scrolled: clean light luxury background with dark text
+  // - On homepage at top: transparent over the runway video
+  // - When hovered at the top of homepage: enhanced translucent backdrop for high contrast
   const isLight = !isHome || isScrolled;
 
   return (
@@ -42,7 +42,7 @@ export default function HeaderNav() {
         onMouseLeave={() => setIsNavbarHovered(false)}
         className={`fixed top-0 left-0 right-0 z-40 transition-all duration-400 group/navbar ${
           isLight
-            ? 'bg-[#fdfbf8]/95 backdrop-blur-md border-b border-[#eee6db] py-3 text-[#241e1b] shadow-sm'
+            ? 'bg-[#fdfbf8]/95 backdrop-blur-md border-b border-[#eee6db] py-3.5 text-[#241e1b] shadow-sm'
             : isNavbarHovered
             ? 'bg-black/60 backdrop-blur-md py-4 sm:py-5 text-white border-b border-white/15'
             : 'bg-gradient-to-b from-black/80 via-black/35 to-transparent py-4 sm:py-5 text-white'
@@ -50,7 +50,7 @@ export default function HeaderNav() {
       >
         <div className="max-w-7xl mx-auto px-6 flex flex-col items-center">
           
-          {/* Top Row: Hamburger on Mobile & Centered Logo Image */}
+          {/* Top Row: Mobile Hamburger & Centered Brand (Logo on Left, Anurosh Title on Right) */}
           <div className="w-full flex items-center justify-between sm:justify-center relative">
             
             {/* Mobile Hamburger Trigger */}
@@ -65,19 +65,40 @@ export default function HeaderNav() {
               <Menu className="w-5 h-5" />
             </button>
 
-            {/* Official ANUROSH Royal Crest Logo Image */}
+            {/* BRAND LOCKUP: Logo on Left, Anurosh Title on Right */}
             <Link
               href="/"
-              className="text-center group flex flex-col items-center justify-center focus:outline-none"
+              className="group flex items-center justify-center gap-3 sm:gap-4 focus:outline-none"
             >
+              {/* Logo on Left */}
               <img
                 src="/anurosh-logo.webp"
-                alt="Anurosh - Beyond Fashion"
-                className="h-14 sm:h-16 md:h-18 w-auto object-contain transition-transform duration-500 group-hover:scale-105 drop-shadow-md"
+                alt="Anurosh Logo"
+                className="h-11 sm:h-13 md:h-15 w-auto object-contain transition-transform duration-500 group-hover:scale-105 drop-shadow-md"
               />
+
+              {/* Anurosh Name (Title) on Right */}
+              <div className="flex flex-col items-start justify-center text-left">
+                <span
+                  className={`font-serif text-2xl sm:text-3xl tracking-[0.32em] uppercase font-light leading-none block transition-colors ${
+                    isLight
+                      ? 'text-[#241e1b] group-hover:text-[#9b7c53]'
+                      : 'text-white group-hover:text-white/90 drop-shadow-sm'
+                  }`}
+                >
+                  Anurosh
+                </span>
+                <span
+                  className={`text-[8px] sm:text-[9px] uppercase tracking-[0.45em] font-light block mt-1 transition-colors ${
+                    isLight ? 'text-[#9b7c53]' : 'text-white/75'
+                  }`}
+                >
+                  Beyond Fashion
+                </span>
+              </div>
             </Link>
 
-            {/* Empty spacer for mobile balance */}
+            {/* Empty spacer for mobile layout balance */}
             <div className="lg:hidden w-8" />
           </div>
 
@@ -108,7 +129,7 @@ export default function HeaderNav() {
                   >
                     <span>{item.name}</span>
                     
-                    {/* Active Indicator line */}
+                    {/* Active indicator bar */}
                     {isActive && (
                       <span
                         className={`absolute bottom-0 left-0 right-0 h-[1.5px] ${
@@ -147,12 +168,24 @@ export default function HeaderNav() {
         <div className="fixed inset-0 z-50 bg-[#fdfbf8] flex flex-col justify-between p-6 sm:p-10 text-[#241e1b] animate-in fade-in duration-300">
           <div>
             <div className="flex items-center justify-between border-b border-[#eee6db] pb-4">
-              <Link href="/" onClick={() => setMobileMenuOpen(false)}>
+              <Link
+                href="/"
+                onClick={() => setMobileMenuOpen(false)}
+                className="flex items-center gap-3"
+              >
                 <img
                   src="/anurosh-logo.webp"
                   alt="Anurosh"
-                  className="h-12 w-auto object-contain"
+                  className="h-10 w-auto object-contain"
                 />
+                <div className="flex flex-col text-left">
+                  <span className="font-serif text-xl tracking-[0.3em] text-[#241e1b] uppercase">
+                    Anurosh
+                  </span>
+                  <span className="text-[7px] uppercase tracking-[0.4em] text-[#9b7c53]">
+                    Beyond Fashion
+                  </span>
+                </div>
               </Link>
               <button
                 onClick={() => setMobileMenuOpen(false)}

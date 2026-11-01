@@ -13,7 +13,7 @@ export default function ContactPage() {
   const mapsExternalUrl = 'https://maps.google.com/?q=26.851224,81.0147014';
 
   return (
-    <div className="min-h-screen bg-[#fdfbf8] text-[#241e1b] py-16 md:py-24 px-6 selection:bg-[#9b7c53] selection:text-white">
+    <div className="min-h-screen bg-[#fdfbf8] text-[#241e1b] pt-36 sm:pt-40 md:pt-44 pb-20 px-6 selection:bg-[#9b7c53] selection:text-white">
       <div className="max-w-6xl mx-auto space-y-16">
         
         {/* Page Header */}
@@ -22,7 +22,7 @@ export default function ContactPage() {
             Indira Nagar • Lucknow
           </span>
           <h1 className="font-serif text-3xl sm:text-5xl font-light tracking-[0.2em] text-[#241e1b] uppercase">
-            Contact & Studio
+            Contact Us
           </h1>
           <p className="text-xs sm:text-sm text-[#73655d] font-light tracking-wide leading-relaxed">
             We welcome you to our flagship boutique for private bridal fittings, custom trousseau consultations, and Awadhi karigari commissions.

@@ -7,7 +7,7 @@ export const metadata: Metadata = {
 
 export default function BridalPage() {
   return (
-    <div className="min-h-[70vh] bg-[#fdfbf8] flex items-center justify-center p-6">
+    <div className="min-h-[75vh] bg-[#fdfbf8] pt-36 sm:pt-40 pb-20 flex items-center justify-center p-6">
       <div className="text-center space-y-2">
         <span className="text-[10px] uppercase tracking-[0.4em] text-[#9b7c53] font-light block">
           Couture Archive
