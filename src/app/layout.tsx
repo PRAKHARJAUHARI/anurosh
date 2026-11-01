@@ -3,7 +3,7 @@ import HeaderNav from '@/components/HeaderNav';
 import './globals.css';
 
 export const viewport: Viewport = {
-  themeColor: '#380e15',
+  themeColor: '#fdfbf8',
   width: 'device-width',
   initialScale: 1,
   maximumScale: 5,
