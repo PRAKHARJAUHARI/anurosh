@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from 'next';
 import Link from 'next/link';
+import FirstVisitIntro from '@/components/FirstVisitIntro';
 import './globals.css';
 
 export const viewport: Viewport = {
@@ -112,6 +113,9 @@ export default function RootLayout({
         />
       </head>
       <body className="antialiased min-h-screen flex flex-col bg-[#fdfbf7] text-[#221c18] selection:bg-[#380e15] selection:text-white">
+        {/* First-time visitor cinematic 3D entrance intro */}
+        <FirstVisitIntro />
+
         {/* Navigation Header */}
         <header className="border-b border-[#e5d8c6] bg-white sticky top-0 z-30">
           <div className="max-w-6xl mx-auto px-4 py-4 flex flex-col sm:flex-row items-center justify-between gap-4">
