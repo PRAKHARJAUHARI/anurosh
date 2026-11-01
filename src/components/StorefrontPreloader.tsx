@@ -97,7 +97,8 @@ export default function StorefrontPreloader({ onComplete }: StorefrontPreloaderP
           >
             {/* The Full Architectural Facade Image (object-contain ensures 100% of building is seen first) */}
             <img
-              src="/anurosh-facade.png"
+              src="/anurosh-facade.jpg"
+              srcSet="/anurosh-facade.jpg 1x, /anurosh-facade-2x.jpg 2x"
               alt="Anurosh Boutique Entrance"
               className="w-full h-full object-contain sm:object-cover max-h-screen max-w-screen"
             />
