@@ -389,7 +389,7 @@ export default function HomePage() {
                 Concierge: <a href={`tel:${phone}`} className="text-[#241e1b] underline">{phone}</a>
               </p>
               <p>
-                Email: <a href="mailto:atelier@anurosh.com" className="text-[#241e1b] underline">atelier@anurosh.com</a>
+                Email: <a href="mailto:contact@anurosh.com" className="text-[#241e1b] underline">contact@anurosh.com</a>
               </p>
               <div className="pt-2">
                 <a

@@ -71,7 +71,7 @@ export default function ContactPage() {
                 Phone: <a href={`tel:${phone}`} className="underline text-[#241e1b] font-normal">{phone}</a>
               </p>
               <p>
-                Email: <a href="mailto:atelier@anurosh.com" className="underline text-[#241e1b]">atelier@anurosh.com</a>
+                Email: <a href="mailto:contact@anurosh.com" className="underline text-[#241e1b]">contact@anurosh.com</a>
               </p>
               <div className="pt-2">
                 <a
