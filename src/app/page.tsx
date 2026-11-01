@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Volume2, VolumeX, Play, Pause, ArrowUpRight } from 'lucide-react';
 
@@ -19,9 +19,62 @@ export default function HomePage() {
   const [isPlaying, setIsPlaying] = useState(true);
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const ambientVideoRef = useRef<HTMLVideoElement | null>(null);
+  const heroSectionRef = useRef<HTMLElement | null>(null);
 
   const instagramUrl = 'https://www.instagram.com/anurosh.in';
   const phone = '08496000040';
+
+  // 1. Initial open: ensure video is muted on first open
+  // 2. Automatically mute video when the video section is scrolled down
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.muted = true;
+    }
+    if (ambientVideoRef.current) {
+      ambientVideoRef.current.muted = true;
+    }
+
+    const heroEl = heroSectionRef.current;
+    if (!heroEl) return;
+
+    // Use IntersectionObserver for performant scroll-past detection
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          // When the video section is scrolled out of view (or less than 25% visible)
+          if (!entry.isIntersecting || entry.intersectionRatio < 0.25) {
+            if (videoRef.current && !videoRef.current.muted) {
+              videoRef.current.muted = true;
+              setIsMuted(true);
+            }
+          }
+        });
+      },
+      {
+        threshold: [0, 0.25, 0.5, 0.75, 1],
+      }
+    );
+
+    observer.observe(heroEl);
+
+    // Scroll listener as an instant fallback during rapid momentum scrolling
+    const handleScroll = () => {
+      const rect = heroEl.getBoundingClientRect();
+      if (rect.bottom < window.innerHeight * 0.4) {
+        if (videoRef.current && !videoRef.current.muted) {
+          videoRef.current.muted = true;
+          setIsMuted(true);
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+
+    return () => {
+      observer.disconnect();
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   const toggleSound = () => {
     if (videoRef.current) {
@@ -84,7 +137,7 @@ export default function HomePage() {
       {/* ========================================================================= */}
       {/* 1. EXACT SABYASACHI FULLSCREEN RUNWAY HERO                                */}
       {/* ========================================================================= */}
-      <section className="relative h-screen w-full overflow-hidden bg-[#0c0908] flex items-center justify-center">
+      <section ref={heroSectionRef} className="relative h-screen w-full overflow-hidden bg-[#0c0908] flex items-center justify-center">
         
         {/* Ambient video blur halo for widescreen / 4K displays */}
         <div className="absolute inset-0 z-0 overflow-hidden opacity-30 pointer-events-none scale-110">
