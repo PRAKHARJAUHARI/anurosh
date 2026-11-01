@@ -4,13 +4,13 @@ import { MapPin, Phone, Mail, Clock } from 'lucide-react';
 export const metadata: Metadata = {
   title: 'Contact & Flagship Atelier | Anurosh — Lucknow',
   description:
-    'Visit Anurosh Flagship Atelier at 18/355, Sadbhavna Road, Near Maitri Park, Indira Nagar, Lucknow, Uttar Pradesh - 226016. Telephone: +91 98765 43210.',
+    'Visit Anurosh Flagship Atelier at 2/23, Vineet Khand, Gomti Nagar, Lucknow, Uttar Pradesh 226010. Telephone: 08496000040.',
 };
 
 export default function ContactPage() {
-  const storeAddress = '18/355, Sadbhavna Road, Near Maitri Park, Indira Nagar, Lucknow, Uttar Pradesh - 226016';
-  const phone = '+91 98765 43210';
-  const mapsExternalUrl = 'https://maps.google.com/?q=26.851224,81.0147014';
+  const storeAddress = '2/23, Vineet Khand, Gomti Nagar, Lucknow, Uttar Pradesh 226010';
+  const phone = '08496000040';
+  const mapsExternalUrl = `https://maps.google.com/?q=${encodeURIComponent('Anurosh, 2/23, Vineet Khand, Gomti Nagar, Lucknow, Uttar Pradesh 226010')}`;
 
   return (
     <div className="min-h-screen bg-[#fdfbf8] text-[#241e1b] pt-36 sm:pt-40 md:pt-44 pb-20 px-6 selection:bg-[#9b7c53] selection:text-white">
@@ -19,7 +19,7 @@ export default function ContactPage() {
         {/* Page Header */}
         <div className="text-center space-y-3 max-w-2xl mx-auto">
           <span className="text-[10px] uppercase tracking-[0.4em] text-[#9b7c53] font-light block">
-            Indira Nagar • Lucknow
+            Gomti Nagar • Lucknow
           </span>
           <h1 className="font-serif text-3xl sm:text-5xl font-light tracking-[0.2em] text-[#241e1b] uppercase">
             Contact Us
@@ -41,9 +41,9 @@ export default function ContactPage() {
             </div>
             <address className="not-italic text-xs sm:text-sm text-[#4a3f38] font-light leading-relaxed">
               <strong className="font-normal text-[#241e1b] block mb-1">Anurosh</strong>
-              18/355, Sadbhavna Road,<br />
-              Near Maitri Park, Indira Nagar,<br />
-              Lucknow, Uttar Pradesh - 226016
+              2/23, Vineet Khand,<br />
+              Gomti Nagar,<br />
+              Lucknow, Uttar Pradesh - 226010
             </address>
           </div>
 
@@ -68,7 +68,7 @@ export default function ContactPage() {
             </div>
             <div className="text-xs sm:text-sm text-[#4a3f38] font-light leading-relaxed space-y-1">
               <p>
-                Phone: <a href={`tel:${phone}`} className="underline text-[#241e1b]">{phone}</a>
+                Phone: <a href={`tel:${phone}`} className="underline text-[#241e1b] font-normal">{phone}</a>
               </p>
               <p>
                 Email: <a href="mailto:atelier@anurosh.com" className="underline text-[#241e1b]">atelier@anurosh.com</a>
@@ -92,7 +92,7 @@ export default function ContactPage() {
         <div className="space-y-4">
           <div className="flex items-center justify-between text-xs tracking-wider font-light text-[#73655d]">
             <span className="uppercase text-[10px] tracking-[0.25em] text-[#9b7c53]">Interactive Navigation</span>
-            <span>Near Maitri Park, Indira Nagar</span>
+            <span>Vineet Khand, Gomti Nagar</span>
           </div>
           
           <div className="w-full overflow-hidden border border-[#eee6db] bg-[#faf6f0] shadow-sm rounded-sm">

@@ -225,7 +225,7 @@ export default function HeaderNav() {
               Follow @anurosh.in on Instagram
             </a>
             <p className="tracking-wide text-center pt-2">
-              Lucknow Flagship Atelier • Sadbhavna Road, Indira Nagar
+              Lucknow Flagship Atelier • 2/23, Vineet Khand, Gomti Nagar
             </p>
           </div>
         </div>

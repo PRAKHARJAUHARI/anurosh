@@ -21,7 +21,7 @@ export default function HomePage() {
   const ambientVideoRef = useRef<HTMLVideoElement | null>(null);
 
   const instagramUrl = 'https://www.instagram.com/anurosh.in';
-  const phone = '+91 98765 43210';
+  const phone = '08496000040';
 
   const toggleSound = () => {
     if (videoRef.current) {
@@ -67,13 +67,13 @@ export default function HomePage() {
     {
       title: 'The Atelier',
       href: '/about',
-      desc: 'Generations of master Awadhi artisans and our Indira Nagar flagship.',
+      desc: 'Generations of master Awadhi artisans and our Gomti Nagar flagship.',
       code: '04',
     },
     {
       title: 'Contact & Studio',
       href: '/contact',
-      desc: '18/355, Sadbhavna Road, Near Maitri Park, Indira Nagar, Lucknow.',
+      desc: '2/23, Vineet Khand, Gomti Nagar, Lucknow, UP - 226010.',
       code: '05',
     },
   ];
@@ -203,7 +203,7 @@ export default function HomePage() {
 
           <div className="pt-2">
             <span className="text-xs uppercase tracking-[0.3em] text-[#8a7a70] font-light block">
-              — Anurosh Atelier • Sadbhavna Road, Indira Nagar
+              — Anurosh Atelier • Gomti Nagar, Lucknow
             </span>
           </div>
         </div>
@@ -370,9 +370,9 @@ export default function HomePage() {
                 Flagship Studio
               </span>
               <p className="text-xs text-[#4a3f38] leading-relaxed">
-                18/355, Sadbhavna Road,<br />
-                Near Maitri Park, Indira Nagar,<br />
-                Lucknow, UP - 226016
+                2/23, Vineet Khand,<br />
+                Gomti Nagar,<br />
+                Lucknow, UP - 226010
               </p>
               <p className="pt-1">
                 <Link href="/contact" className="text-[#9b7c53] underline text-[11px] uppercase tracking-wider">
