@@ -1,7 +1,9 @@
 @import "tailwindcss";
 
 :root {
-  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-serif: 'Cinzel', 'Cormorant Garamond', Georgia, serif;
+  --font-garamond: 'Cormorant Garamond', Georgia, serif;
+  --font-cinzel: 'Cinzel', serif;
   --font-sans: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --royal-maroon: #4a0e17;
   --deep-crimson: #6b1426;
@@ -9,7 +11,7 @@
   --bright-gold: #e2ba64;
   --soft-gold: #f4e8c1;
   --champagne: #faf6ee;
-  --rich-black: #100f0f;
+  --rich-black: #0c0a09;
   --dark-charcoal: #1e1b18;
 }
 
